@@ -1,0 +1,16 @@
+g a `Content-MD5` on a command if calculating the Content-MD5 fails via the CommandContentMd5Plugin
+
+## 3.7.0 - 2013-06-10
+
+* See UPGRADING.md for more information on how to upgrade.
+* Requests now support the ability to specify an array of $options when creating a request to more easily modify a
+  request. You can pass a 'request.options' configuration setting to a client to apply default request options to
+  every request created by a client (e.g. default query string variables, headers, curl options, etc.).
+* Added a static facade class that allows you to use Guzzle with static methods and mount the class to `\Guzzle`.
+  See `Guzzle\Http\StaticClient::mount`.
+* Added `command.request_options` to `Guzzle\Service\Command\AbstractCommand` to pass request options to requests
+      created by a command (e.g. custom headers, query string variables, timeout settings, etc.).
+* Stream size in `Guzzle\Stream\PhpStreamRequestFactory` will now be set if Content-Length is returned in the
+  headers of a response
+* Added `Guzzle\Common\Collection::setPath($path, $value)` to set a value into an array using a nested key
+  (e.g. `$collection->
